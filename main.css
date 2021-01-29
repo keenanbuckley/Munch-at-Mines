@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsl(230, 8%, 15%);
+    font-family: 'Montserrat';
+    padding: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
+}
+
+#title {
+    color:  hsl(230, 8%, 95%);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#menu {
+    background-color:  hsl(230, 8%, 85%);
+    box-shadow: 0 0 10px black;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#shortcuts > a {
+    width: auto;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+    font-weight: normal;
+}
+
+.cal {
+    text-align: right;
+}
+
+.anchor {
+    text-align: center;
+}
+
+.anchor > a{
+    color: black;
+    font-size: 25px;
+}
+
+
+.diner_name {
+    font-style: italic;
+}
+
+.meal_title {
+    text-decoration: underline;
+}

@@ -2,6 +2,8 @@ import json
 import datetime
 import requests
 import os
+from pybars import Compiler
+from premailer import transform
 
 # MenuItem class holds data for individual menu items
 class MenuItem:
@@ -17,7 +19,8 @@ SODEXO_API_KEY = os.environ["SODEXO_API_KEY"]
 # Generates date string
 date = datetime.date.today()
 year = str(date.year)
-month = str(date.month)
+month_index = date.month
+month = str(month_index)
 day = str(date.day)
 
 while (len(month) < 2): month = "0" + month
@@ -35,6 +38,7 @@ payload = {'date': requestDate, 'locationid': '75204001'}
 
 # Creates the json file
 json_file = json.loads(requests.get(url, params=payload, headers=headers).text)
+
 
 
 # Date for searching json
@@ -76,5 +80,19 @@ for item in unparsed_menu:
         except:
             pass
 
-with open("test.json", "w") as file:
-    file.write(json.dumps(menu))
+
+output = None
+with open("menus.handlebars", "r") as template:
+    compiler = Compiler()
+    document = compiler.compile(template.read())
+    templated = document({
+        "day_name": ("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")[date.weekday()],
+        "month": ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")[month_index - 1],
+        "date": day,
+        "menu": menu
+    });
+    output = transform(templated)
+
+    with open("output.html", "w") as html:
+        html.write(output)
+

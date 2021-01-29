@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Munch email</title>
-    </head>
-    <body>
-        <div class="header">
-            <h1>{{day_name}}, {{month}} {{date}} at Mines Market</h1>
-            
-        </div>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Munch email</title>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+
+<body>
+    <p id="title">{{day_name}}, {{month}} {{date}} at Mines Market</p>
+    <div id="menu">
+        {{!-- The following section does not work well for email - requires web browser features --}}
+        {{!-- <table id="shortcuts">
+            <tr>
+                <th class="anchor"><a href="#BREAKFAST">Breakfast menu</a></th>
+                <th class="anchor"><a href="#LUNCH">Lunch menu</a></th>
+                <th class="anchor"><a href="#DINNER">Dinner menu</a></th>
+            </tr>
+        </table> --}}
+
+        {{#each menu}}
+        <h1 id={{@key}} class="meal_title">{{@key}}</h1>
+        {{#each this}}
+        <h2 class="diner_name">{{@key}}</h2>
+        <table class="menu_table">
+            <tr>
+                <th colspan="2">
+                    <hr>
+                </th>
+            </tr>
+            {{#each this}}
+            <tr>
+                <th>{{this.name}}</th>
+                <th class="cal">{{this.calories}} calories</th>
+            </tr>
+            <tr>
+                <th colspan="2">{{this.description}}
+                    <hr>
+                </th>
+            </tr>
+            {{/each}}
+        </table>
+        {{/each}}
+        {{/each}}
+        </ul>
+
+</body>
+
 </html>
