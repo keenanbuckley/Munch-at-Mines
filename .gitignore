@@ -1,2 +1,4 @@
-/menu.json
-/test.json
+bin
+include
+lib
+lib64
