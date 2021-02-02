@@ -4,6 +4,9 @@ import requests
 import os
 from pybars import Compiler
 from premailer import transform
+import smtplib, ssl
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 # MenuItem class holds data for individual menu items
 class MenuItem:
