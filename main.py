@@ -24,7 +24,7 @@ month = str(month_index)
 day = str(date.day)
 
 while (len(month) < 2): month = "0" + month
-while (len(day) < 2): month = "0" + day
+while (len(day) < 2): day = "0" + day
 
 date_string = "{}-{}-{}".format(year, month, day)
 
