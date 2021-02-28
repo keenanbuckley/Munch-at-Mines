@@ -3,3 +3,5 @@ include
 lib
 lib64
 output.html
+main_config.json
+*.json
