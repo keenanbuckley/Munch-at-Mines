@@ -160,7 +160,6 @@ if receiver_emails:
     day_name = ("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday")[date.weekday()]
     month_name = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")[month_index - 1]
     message['subject'] = day_name + ', ' + month_name + ' ' + day + ' at Mines Market'
-    message['To'] = ", ".join(receiver_emails)
     message['From'] = sender_email
     
     html_body = MIMEText(output, 'html')
