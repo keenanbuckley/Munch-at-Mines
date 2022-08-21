@@ -84,7 +84,7 @@ print('reorganizing data...')
 date_string = "{}T00:00:00".format(date_string)
 
 # Narrows down json to current date
-days = json_file["Menus"][0]["MenuDays"]
+days = json_file["Menus"][0]["OrderDays"]
 
 unparsed_menu = None
 for d in days:
