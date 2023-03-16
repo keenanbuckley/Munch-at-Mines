@@ -130,12 +130,11 @@ with open("menus.handlebars", "r") as template:
         "date": day,
         "menu": menu
     });
-    output = transform(templated)
+    output = transform(templated, allow_loading_external_files=True)
 
 # Write to file for testing
 with open("output.html", "w") as html:
     html.write(output)
-    
   
 # Prepare and send email to self
 print('sending email...')
