@@ -6,3 +6,4 @@ output.html
 main_config.json
 *.json
 environment
+__pycache__
